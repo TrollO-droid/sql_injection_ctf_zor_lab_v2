@@ -128,6 +128,8 @@ echo 464c41477b546869734973486172647d | xxd -r -p
 FLAG{ThisIsHard}
 ```
 
+---
+
 ### Dosya ve Klasör Yapısı
 
 ```bash
@@ -140,6 +142,8 @@ FLAG{ThisIsHard}
 └── .assets/         # Gizli klasör
     └── style.css    # Flag içeren dosya (base64 gömülü)
 ```
+
+---
 
 ### Güvenlik Notları
 - Bu proje eğitim amaçlıdır, gerçek ortamda kullanılmamalıdır.
