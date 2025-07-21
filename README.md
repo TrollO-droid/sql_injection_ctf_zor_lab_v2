@@ -121,3 +121,44 @@ flag="464c41477b546869734973486172647d";
 ```bash
 echo 464c41477b546869734973486172647d | xxd -r -p
 ```
+
+- Sonuç:
+
+```text
+FLAG{ThisIsHard}
+```
+
+### Dosya ve Klasör Yapısı
+
+```bash
+/
+├── index.php        # Giriş sayfası, SQLi açığı var
+├── panel.php        # Panel sayfası
+├── hint.php         # Yanıltıcı ipuçları
+├── 404.php          # Özel hata sayfası
+├── db.sql           # Veritabanı dump dosyası
+└── .assets/         # Gizli klasör
+    └── style.css    # Flag içeren dosya (base64 gömülü)
+```
+
+### Güvenlik Notları
+- Bu proje eğitim amaçlıdır, gerçek ortamda kullanılmamalıdır.
+
+- Kasıtlı olarak SQL Injection açığı içermektedir.
+
+- Yasal izin olmadan canlı sistemlerde test edilmemelidir.
+
+### Ileri Seviye Öneriler
+- Blind SQL Injection senaryosu ekleyebilirsiniz.
+
+- Local File Inclusion (LFI) ve Remote File Inclusion (RFI) açıkları ile çeşitlendirebilirsiniz.
+
+- XSS, CSRF gibi diğer zafiyetlerle labı zenginleştirebilirsiniz.
+
+- Çoklu kullanıcı ve yetki kontrolü ekleyerek gerçekçilik artırılabilir.
+
+### Katkıda Bulunanlar
+- Proje sahibi: [Troll]
+
+### Lisans
+Bu proje MIT Lisansı altında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasına bakınız.
